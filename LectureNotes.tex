@@ -1,0 +1,110 @@
+\documentclass[10pt,a4paper,fleqn,landscape]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+%--------------------------------Darstellung------------------------------------
+\usepackage{multicol}	%Einbindung Paket für mehrere Spalten
+\usepackage{graphicx}	%Einbindung Paket für Bilder
+
+%% ----- Text -----															
+\usepackage[sfdefault]{cabin}	%Bezug der richtigen Packages für Schrift
+\setlength\parindent{0pt}		%Keinen Einzug bei neuem Absatz
+\usepackage{enumitem}			%Erweiterungspaket für Aufzählungen und Listen
+\setlist{nosep}
+%% ----- Geometrie -----
+\usepackage[
+landscape,
+left 		= 1.0cm,
+right 		= 1.0cm,
+top			= 1.0cm,
+bottom		= 1.2cm
+]{geometry}
+\setlength{\footskip}{15pt}
+
+\usepackage{listings}
+\lstset{language=Pascal,breaklines=true,basicstyle=\scriptsize}
+
+%--------------------------------Mathematik-------------------------------------
+\usepackage{amsmath, amsfonts, amssymb, bm, bbm, mathtools, mathrsfs, units, empheq, gensymb}	%Einbindung Pakate für Mathematik - DAS SIND VIEL ZU VIELE...
+
+%---------------------------------Weblinks--------------------------------------
+\usepackage{hyperref}	%Einbindung Paket für Weblinks
+
+
+%#####################################  Dokument #####################################
+\begin{document}	
+\pagenumbering{roman}
+
+%--------------------------------------Titelseite-------------------------------------
+\begin{multicols*}{2}
+	\begin{center}
+		\topskip0pt
+		\vspace*{\fill}
+		
+		{\huge \textbf{Computer Vision}}\\
+		\vspace{0.5em}
+		{\LARGE Lecture Notes}\\
+		\vspace{1.5em}
+		{\large Stand: \today}\\
+		\vspace{1em}
+		{\Large Tobias Zumsteg}\\
+		tzumsteg@ethz.ch\\
+		\vspace{1em}
+		{\small Keine Gewaehr auf Richtigkeit.}\\
+		\vspace{5em}
+		
+		\vspace*{\fill}
+	\end{center}
+	\columnbreak
+	
+	%--------------------------------Kommentar zur ZF----------------------------------
+	%\input{kapitel/Kommentar}
+	
+	%-------------------------------Quellenverzeichnis---------------------------------
+	Resources:
+	\begin{itemize}
+		\item Lecture Slides by Marc Pollefeys, Luc Van Gool, Vittorio Ferrari
+		\item Tutorial Notes by Marc Pollefeys
+		\item Book Computer Vision: Algorithms and Applications by Richard Szeliski
+	\end{itemize}
+	
+	DLT explained (with Gold Standard algorithm):\\
+	http://bardsley.org.uk/wp-content/uploads/2007/02/3d-reconstruction-using-the-direct-linear-transform.pdf
+	
+\end{multicols*}
+\newpage
+
+%------------------------------Inhaltsverzeichnis----------------------------------
+\begin{multicols*}{4}
+	{\footnotesize 
+		\tableofcontents
+	}
+\end{multicols*}	
+\newpage	
+
+%--------------------------------Beginn Inhalt--------------------------------------
+\begin{multicols*}{3}
+	\pagenumbering{arabic}
+	\input{chapters/1_Projective_Geometry}		%Chapter 1 - Mathe
+	\input{chapters/2_Camera_Model} 			%Chapter 2 - Kalibration
+	\input{chapters/3_Relating_Images}			%Chapter 3 - Feature extraction
+	\input{chapters/4_Structure_And_Motion}		%Chapter 4 - Structure and Motion
+	\input{chapters/5_Multiple_View_Geometry}	%Chapter 5 - Multiple View Geometry
+	\input{chapters/6_Model_Fitting}			%Chapter 6 - Model Fitting
+	\input{chapters/7_Image_Segmentation}		%Chapter 7 - Image Segmentation
+	\input{chapters/8_Stereo_Matching}			%Chapter 8 - Stereo Matching
+	\input{chapters/9_Structure_from_Motion}	%Chapter 9 - Structure from Motion
+	\input{chapters/10_Spec_Object_Recognition}	%Chapter10 - Specific Object Recognition
+	\input{chapters/11_Object_Class_Recognition}%Chapter11 - Object Class Recognition
+	
+	
+\end{multicols*}
+\begin{multicols*}{3}	
+	\appendix
+	\input{appendix/A_gloassary}				%A Glossary
+	
+
+	
+	
+\end{multicols*}
+\end{document}
